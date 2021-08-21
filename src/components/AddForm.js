@@ -7,7 +7,7 @@ const AddForm = () => {
 
 
   //contexten addEmploye fonksiyonunu yakaladik
-  const { addEmployee } = useContext(EmployeeContext)
+  const { dispatch } = useContext(EmployeeContext)
 
 
   //herbir form elemanini ayri bir state olarak dusunduk ve baslangic degerleri bos string yaptik
@@ -28,7 +28,10 @@ const AddForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addEmployee(name, email, address, phone)
+    /* addEmployee(name, email, address, phone) */
+    dispatch({type: 'add_employee', employee : {
+      name, email, address, phone
+    }})
   }
 
 
